@@ -28,9 +28,12 @@ using System.Text;
 using System.Threading.Tasks;
 using MPSSELight;
 using System.Threading;
-using Fclp;
 using System.Diagnostics;
 using System.IO;
+using MPSSELight.Ftdi;
+using MPSSELight.Mpsse;
+using MPSSELight.Devices;
+using MPSSELight.Protocol;
 
 namespace SpiLight
 {

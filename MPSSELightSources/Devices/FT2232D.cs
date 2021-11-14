@@ -21,38 +21,18 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MPSSELight.Mpsse;
 
-namespace MPSSELight
+namespace MPSSELight.Devices
 {
-    [Flags]
-    public enum Ft2232dPin
-    {
-        None = 0,
-
-        ADBUS0 = 1,
-        ADBUS1 = 1 << 1,
-        ADBUS2 = 1 << 2,
-        ADBUS3 = 1 << 3,
-        ADBUS4 = 1 << 4,
-        ADBUS5 = 1 << 5,
-        ADBUS6 = 1 << 6,
-        ADBUS7 = 1 << 7,
-
-        ACBUS0 = 1,
-        ACBUS1 = 1 << 1,
-        ACBUS2 = 1 << 2,
-        ACBUS3 = 1 << 3,
-    }
-
     public class FT2232D : MpsseDevice
     {
-        public FT2232D(String serialNumber) : base(serialNumber) { }
+        public FT2232D(string serialNumber) : base(serialNumber)
+        {
+        }
 
-        public FT2232D(String serialNumber, MpsseParams param) : base(serialNumber, param) { }
+        public FT2232D(string serialNumber, MpsseParams param) : base(serialNumber, param)
+        {
+        }
     }
 }

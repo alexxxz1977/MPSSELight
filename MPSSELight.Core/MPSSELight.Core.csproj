@@ -1,0 +1,75 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <PackageId>MPSSELight</PackageId>
+    <Description>Lightweight .net Multi Purpose Synchronous Serial Engine (MPSSE) library for FT2232D, FT232H, FT2232H and FT4232H devices. Works over the default FTDI drivers (D2XX plus its .net wrapper FTD2XX_NET). Unlike libMPSSE-.Net-Wrapper it is not based on libMPSSE.</Description>
+    <Company>Stanislav Zhelnio / Softprise Consulting</Company>
+    <Product>MPSSELight</Product>
+    <Copyright>Stanislav Zhelnio ©  2016, Softprise Consulting ©  2021</Copyright>
+    <AssemblyVersion>0.6.0.0</AssemblyVersion>
+    <FileVersion>0.6.0.0</FileVersion>
+    <Version>0.6.0.0</Version>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <Compile Remove="Properties\**" />
+    <EmbeddedResource Remove="Properties\**" />
+    <None Remove="Properties\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="mpsse\ArrayExtensions.cs" />
+    <Compile Remove="mpsse\CommandCode.cs" />
+    <Compile Remove="mpsse\MemoryStreamExtensions.cs" />
+    <Compile Remove="mpsse\MpsseCommand.cs" />
+    <Compile Remove="mpsse\MpsseDevice.cs" />
+    <Compile Remove="mpsse\MpsseDeviceExtendedA.cs" />
+    <Compile Remove="mpsse\MpsseDeviceExtendedB.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\MPSSELightSources\BitMainipulation\AcBusRegister.cs" Link="BitMainipulation\AcBusRegister.cs" />
+    <Compile Include="..\MPSSELightSources\BitMainipulation\Bit.cs" Link="BitMainipulation\Bit.cs" />
+    <Compile Include="..\MPSSELightSources\BitMainipulation\ByteEx.cs" Link="BitMainipulation\ByteEx.cs" />
+    <Compile Include="..\MPSSELightSources\BitMainipulation\ByteFlag.cs" Link="BitMainipulation\ByteFlag.cs" />
+    <Compile Include="..\MPSSELightSources\BitMainipulation\Direction.cs" Link="BitMainipulation\Direction.cs" />
+    <Compile Include="..\MPSSELightSources\BitMainipulation\RegisterByte.cs" Link="BitMainipulation\RegisterByte.cs" />
+    <Compile Include="..\MPSSELightSources\Devices\FT2232D.cs" Link="devices\FT2232D.cs" />
+    <Compile Include="..\MPSSELightSources\Devices\Ft2232dPin.cs" Link="devices\Ft2232dPin.cs" />
+    <Compile Include="..\MPSSELightSources\Devices\FT2232H.cs" Link="devices\FT2232H.cs" />
+    <Compile Include="..\MPSSELightSources\Devices\Ft2232hPin.cs" Link="devices\Ft2232hPin.cs" />
+    <Compile Include="..\MPSSELightSources\Devices\FT232H.cs" Link="devices\FT232H.cs" />
+    <Compile Include="..\MPSSELightSources\Devices\Ft232hPin.cs" Link="devices\Ft232hPin.cs" />
+    <Compile Include="..\MPSSELightSources\Devices\FT4232H.cs" Link="devices\FT4232H.cs" />
+    <Compile Include="..\MPSSELightSources\Devices\Ft4232hPin.cs" Link="devices\Ft4232hPin.cs" />
+    <Compile Include="..\MPSSELightSources\Ftdi\FtdiDevice.cs" Link="ftdi\FtdiDevice.cs" />
+    <Compile Include="..\MPSSELightSources\Ftdi\FtdiException.cs" Link="ftdi\FtdiException.cs" />
+    <Compile Include="..\MPSSELightSources\Ftdi\FtdiInventory.cs" Link="ftdi\FtdiInventory.cs" />
+    <Compile Include="..\MPSSELightSources\Ftdi\FtdiPin.cs" Link="ftdi\FtdiPin.cs" />
+    <Compile Include="..\MPSSELightSources\Mpsse\ArrayExtensions.cs" Link="mpsse\ArrayExtensions.cs" />
+    <Compile Include="..\MPSSELightSources\Mpsse\CommandCode.cs" Link="mpsse\CommandCode.cs" />
+    <Compile Include="..\MPSSELightSources\Mpsse\MemoryStreamExtensions.cs" Link="mpsse\MemoryStreamExtensions.cs" />
+    <Compile Include="..\MPSSELightSources\Mpsse\MpsseCommand.cs" Link="mpsse\MpsseCommand.cs" />
+    <Compile Include="..\MPSSELightSources\Mpsse\MpsseDevice.cs" Link="mpsse\MpsseDevice.cs" />
+    <Compile Include="..\MPSSELightSources\Mpsse\MpsseDeviceExtendedA.cs" Link="mpsse\MpsseDeviceExtendedA.cs" />
+    <Compile Include="..\MPSSELightSources\Mpsse\MpsseDeviceExtendedB.cs" Link="mpsse\MpsseDeviceExtendedB.cs" />
+    <Compile Include="..\MPSSELightSources\Protocol\Gpio.cs" Link="protocol\Gpio.cs" />
+    <Compile Include="..\MPSSELightSources\Protocol\I2cBus.cs" Link="protocol\I2cBus.cs" />
+    <Compile Include="..\MPSSELightSources\Protocol\SpiDevice.cs" Link="protocol\SpiDevice.cs" />
+    <Compile Include="..\MPSSELightSources\Protocol\SpiDeviceDc.cs" Link="protocol\SpiDeviceDc.cs" />
+    <Compile Include="..\MPSSELightSources\Protocol\SpiDisplayDevice.cs" Link="protocol\SpiDisplayDevice.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FTD2XX.Net" Version="1.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="BitMainipulation\" />
+    <Folder Include="devices\" />
+    <Folder Include="ftdi\" />
+    <Folder Include="mpsse\" />
+    <Folder Include="protocol\" />
+  </ItemGroup>
+</Project>

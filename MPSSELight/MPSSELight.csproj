@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MPSSELight</RootNamespace>
     <AssemblyName>MPSSELight</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <PublishUrl>publish\</PublishUrl>
@@ -27,6 +27,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -51,8 +52,8 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FTD2XX_NET, Version=1.0.14.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\FTD2XX.Net.1.0.14\lib\FTD2XX_NET.dll</HintPath>
+    <Reference Include="FTDI2XX, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FTD2XX.Net.1.2.1\lib\net45\FTDI2XX.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -65,21 +66,97 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="devices\FT2232D.cs" />
-    <Compile Include="devices\FT2232H.cs" />
-    <Compile Include="devices\FT232H.cs" />
-    <Compile Include="devices\FT4232H.cs" />
-    <Compile Include="ftdi\FtdiDevice.cs" />
-    <Compile Include="ftdi\FtdiException.cs" />
-    <Compile Include="ftdi\FtdiInventory.cs" />
-    <Compile Include="ftdi\FtdiPin.cs" />
-    <Compile Include="mpsse\MpsseCommand.cs" />
-    <Compile Include="mpsse\MpsseDevice.cs" />
-    <Compile Include="mpsse\ArrayExtensions.cs" />
-    <Compile Include="mpsse\MpsseDeviceExtendedA.cs" />
-    <Compile Include="mpsse\MpsseDeviceExtendedB.cs" />
+    <Compile Include="..\MPSSELightSources\BitMainipulation\AcBusRegister.cs">
+      <Link>BitMainipulation\AcBusRegister.cs</Link>
+    </Compile>
+    <Compile Include="..\MPSSELightSources\BitMainipulation\Bit.cs">
+      <Link>BitMainipulation\Bit.cs</Link>
+    </Compile>
+    <Compile Include="..\MPSSELightSources\BitMainipulation\ByteEx.cs">
+      <Link>BitMainipulation\ByteEx.cs</Link>
+    </Compile>
+    <Compile Include="..\MPSSELightSources\BitMainipulation\ByteFlag.cs">
+      <Link>BitMainipulation\ByteFlag.cs</Link>
+    </Compile>
+    <Compile Include="..\MPSSELightSources\BitMainipulation\Direction.cs">
+      <Link>BitMainipulation\Direction.cs</Link>
+    </Compile>
+    <Compile Include="..\MPSSELightSources\BitMainipulation\RegisterByte.cs">
+      <Link>BitMainipulation\RegisterByte.cs</Link>
+    </Compile>
+    <Compile Include="..\MPSSELightSources\Devices\FT2232D.cs">
+      <Link>devices\FT2232D.cs</Link>
+    </Compile>
+    <Compile Include="..\MPSSELightSources\Devices\Ft2232dPin.cs">
+      <Link>devices\Ft2232dPin.cs</Link>
+    </Compile>
+    <Compile Include="..\MPSSELightSources\Devices\FT2232H.cs">
+      <Link>devices\FT2232H.cs</Link>
+    </Compile>
+    <Compile Include="..\MPSSELightSources\Devices\Ft2232hPin.cs">
+      <Link>devices\Ft2232hPin.cs</Link>
+    </Compile>
+    <Compile Include="..\MPSSELightSources\Devices\FT232H.cs">
+      <Link>devices\FT232H.cs</Link>
+    </Compile>
+    <Compile Include="..\MPSSELightSources\Devices\Ft232hPin.cs">
+      <Link>devices\Ft232hPin.cs</Link>
+    </Compile>
+    <Compile Include="..\MPSSELightSources\Devices\FT4232H.cs">
+      <Link>devices\FT4232H.cs</Link>
+    </Compile>
+    <Compile Include="..\MPSSELightSources\Devices\Ft4232hPin.cs">
+      <Link>devices\Ft4232hPin.cs</Link>
+    </Compile>
+    <Compile Include="..\MPSSELightSources\Ftdi\FtdiDevice.cs">
+      <Link>ftdi\FtdiDevice.cs</Link>
+    </Compile>
+    <Compile Include="..\MPSSELightSources\Ftdi\FtdiException.cs">
+      <Link>ftdi\FtdiException.cs</Link>
+    </Compile>
+    <Compile Include="..\MPSSELightSources\Ftdi\FtdiInventory.cs">
+      <Link>ftdi\FtdiInventory.cs</Link>
+    </Compile>
+    <Compile Include="..\MPSSELightSources\Ftdi\FtdiPin.cs">
+      <Link>ftdi\FtdiPin.cs</Link>
+    </Compile>
+    <Compile Include="..\MPSSELightSources\Mpsse\ArrayExtensions.cs">
+      <Link>mpsse\ArrayExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\MPSSELightSources\Mpsse\CommandCode.cs">
+      <Link>mpsse\CommandCode.cs</Link>
+    </Compile>
+    <Compile Include="..\MPSSELightSources\Mpsse\MemoryStreamExtensions.cs">
+      <Link>mpsse\MemoryStreamExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\MPSSELightSources\Mpsse\MpsseCommand.cs">
+      <Link>mpsse\MpsseCommand.cs</Link>
+    </Compile>
+    <Compile Include="..\MPSSELightSources\Mpsse\MpsseDevice.cs">
+      <Link>mpsse\MpsseDevice.cs</Link>
+    </Compile>
+    <Compile Include="..\MPSSELightSources\Mpsse\MpsseDeviceExtendedA.cs">
+      <Link>mpsse\MpsseDeviceExtendedA.cs</Link>
+    </Compile>
+    <Compile Include="..\MPSSELightSources\Mpsse\MpsseDeviceExtendedB.cs">
+      <Link>mpsse\MpsseDeviceExtendedB.cs</Link>
+    </Compile>
+    <Compile Include="..\MPSSELightSources\Protocol\Gpio.cs">
+      <Link>protocol\Gpio.cs</Link>
+    </Compile>
+    <Compile Include="..\MPSSELightSources\Protocol\I2cBus.cs">
+      <Link>protocol\I2cBus.cs</Link>
+    </Compile>
+    <Compile Include="..\MPSSELightSources\Protocol\SpiDevice.cs">
+      <Link>protocol\SpiDevice.cs</Link>
+    </Compile>
+    <Compile Include="..\MPSSELightSources\Protocol\SpiDeviceDc.cs">
+      <Link>protocol\SpiDeviceDc.cs</Link>
+    </Compile>
+    <Compile Include="..\MPSSELightSources\Protocol\SpiDisplayDevice.cs">
+      <Link>protocol\SpiDisplayDevice.cs</Link>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="protocol\SpiDevice.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -99,6 +176,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="FTDI2XX.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -23,6 +23,7 @@ SOFTWARE.
 
 using Fclp;
 using MPSSELight;
+using MPSSELight.Ftdi;
 using System;
 using System.Collections.Generic;
 using System.Linq;

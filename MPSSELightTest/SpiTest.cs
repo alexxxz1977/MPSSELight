@@ -2,6 +2,9 @@ using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MPSSELight;
 using System.Linq;
+using MPSSELight.Mpsse;
+using MPSSELight.Devices;
+using MPSSELight.Protocol;
 
 namespace MPSSELightTest
 {

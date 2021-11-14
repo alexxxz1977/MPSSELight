@@ -21,33 +21,27 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-using FTD2XX_NET;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+using MPSSELight.Ftdi;
+using MPSSELight.Mpsse;
 
-namespace MPSSELight
+namespace MPSSELight.Devices
 {
-    static class ArrayExtensions
+    public class FT2232H : MpsseDeviceExtendedA
     {
-
-        public static IEnumerable<int> StartingIndex(this byte[] x, byte[] y)
+        public FT2232H(string serialNumber) : base(serialNumber)
         {
-            IEnumerable<int> index = Enumerable.Range(0, x.Length - y.Length + 1);
-            for (int i = 0; i < y.Length; i++)
-            {
-                index = index.Where(n => x[n + i] == y[i]).ToArray();
-            }
-            return index;
+        }
+
+        public FT2232H(string serialNumber, MpsseParams param) : base(serialNumber, param)
+        {
+        }
+
+        public FT2232H(int id, FtdiOpenMethod method) : base(id, method, new MpsseParams())
+        {
+        }
+
+        public FT2232H(int id, FtdiOpenMethod method, MpsseParams param) : base(id, method, param)
+        {
         }
     }
-
-    
-    
-
-    
 }

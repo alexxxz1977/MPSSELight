@@ -22,40 +22,50 @@ SOFTWARE.
 */
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace MPSSELight
+namespace MPSSELight.Ftdi
 {
     [Flags]
     public enum FtdiPin
     {
         None = 0,
 
-        TCK = 1,
+        //SPI
         SK = 1,
-        TDI = 1 << 1,
+
+        CK = 1,
         DO = 1 << 1,
-        TDO = 1 << 2,
         DI = 1 << 2,
-        TMS = 1 << 3,
         CS = 1 << 3,
 
+        // JTAG
+        TCK = 1,
+
+        TDI = 1 << 1,
+        TDO = 1 << 2,
+        TMS = 1 << 3,
+
+        // I2C
+        SDA = 1 << 1,
+
+        SCK = 1,
+
+        //GPIO LOW
         GPIOL0 = 1 << 4,
+
         GPIOL1 = 1 << 5,
         GPIOL2 = 1 << 6,
         GPIOL3 = 1 << 7,
 
+        //GPIO HIGH
         GPIOH0 = 1,
+
         GPIOH1 = 1 << 1,
         GPIOH2 = 1 << 2,
         GPIOH3 = 1 << 3,
         GPIOH4 = 1 << 4,
         GPIOH5 = 1 << 5,
         GPIOH6 = 1 << 6,
-        GPIOH7 = 1 << 7,
+        GPIOH7 = 1 << 7
     }
-
 }

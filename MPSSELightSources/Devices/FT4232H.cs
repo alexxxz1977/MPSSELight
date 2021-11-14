@@ -21,38 +21,18 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-using System;
+using MPSSELight.Mpsse;
 
-namespace MPSSELight
+namespace MPSSELight.Devices
 {
-    [Flags]
-    public enum Ft232hPin
+    public class FT4232H : MpsseDeviceExtendedA
     {
-        None = 0,
+        public FT4232H(string serialNumber) : base(serialNumber)
+        {
+        }
 
-        ADBUS0 = 1,
-        ADBUS1 = 1 << 1,
-        ADBUS2 = 1 << 2,
-        ADBUS3 = 1 << 3,
-        ADBUS4 = 1 << 4,
-        ADBUS5 = 1 << 5,
-        ADBUS6 = 1 << 6,
-        ADBUS7 = 1 << 7,
-
-        ACBUS0 = 1,
-        ACBUS1 = 1 << 1,
-        ACBUS2 = 1 << 2,
-        ACBUS3 = 1 << 3,
-        ACBUS4 = 1 << 4,
-        ACBUS5 = 1 << 5,
-        ACBUS6 = 1 << 6,
-        ACBUS7 = 1 << 7,
-    }
-
-    public class FT232H : MpsseDeviceExtendedB
-    {
-        public FT232H(String serialNumber) : base(serialNumber) { }
-
-        public FT232H(String serialNumber, MpsseParams param) : base(serialNumber, param) { }
+        public FT4232H(string serialNumber, MpsseParams param) : base(serialNumber, param)
+        {
+        }
     }
 }
