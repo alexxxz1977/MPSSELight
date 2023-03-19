@@ -94,7 +94,7 @@ namespace MPSSELight.Protocol
             return result[0];
         }
 
-        public void FastWriteData(byte address, byte[] data)
+        public void FastWriteData(byte address, byte[] data, bool checkAck = true)
         {
             _mpsse.ClearInput();
 
@@ -108,14 +108,16 @@ namespace MPSSELight.Protocol
 
             _mpsse.ExecuteBuffer();
 
-            // Result
-            var ack = _mpsse.read((uint)data.Length + 1);
-            if (!ack.All(x => (x & 0x01) == 0))
+            if (checkAck)
             {
-                throw new System.Exception("Slave device doesn't acknowledge all written bytes during fast write operation");
+                // Result
+                var ack = _mpsse.read((uint)data.Length + 1);
+                if (!ack.All(x => (x & 0x01) == 0))
+                {
+                    throw new Exception("Slave device doesn't acknowledge all written bytes during fast write operation");
+                }
             }
         }
-
 
         public void WriteData(byte address, byte[] data)
         {
@@ -149,13 +151,13 @@ namespace MPSSELight.Protocol
             if (!SendDeviceAddrAndCheckACK(address) || !SendByteAndCheckACK(register))
             {
                 Stop();
-                throw new System.Exception("");
+                throw new Exception("Unable to write device header while reading");
             }
             Start();
             if (!SendDeviceAddrAndCheckACK(address, true))
             {
                 Stop();
-                throw new System.Exception("");
+                throw new Exception("Unable to write address whle reading");
             }
             var data = new byte[dataSize];
             for (int i = 0; i < dataSize; i++)
@@ -188,7 +190,7 @@ namespace MPSSELight.Protocol
             var result = _mpsse.read(dataSize + 3);
             if ((result[0] & 0x01) != 0)
             {
-                //throw new System.Exception("Slave device doesn't acknowledge all service bytes during fast read operation");
+                throw new Exception("Slave device doesn't acknowledge all service bytes during fast read operation");
             }
             var arr = new byte[dataSize];
             Array.Copy(result, 3, arr, 0, dataSize);
